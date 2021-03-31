@@ -31,7 +31,7 @@ public class UsuarioServicio {
 	}
 
 	/*
-	 * Metodo para listar lso objetos
+	 * Metodo para listar los objetos
 	 */
 	public List<Usuario> listar() {
 		return usuario_repo.findAll();

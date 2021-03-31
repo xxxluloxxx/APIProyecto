@@ -2,7 +2,9 @@ package com.avalith.rest;
 
 import java.util.ArrayList;
 import java.util.List;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +21,8 @@ import com.avalith.servicio.AlbumUsuarioServicio;
  * @author Paúl Arias
  *
  */
+@Slf4j
+@Validated
 @RestController
 @RequestMapping("/albums")
 public class AlbumRest {
@@ -45,11 +49,12 @@ public class AlbumRest {
 		ArrayList<Usuario> usuarios = new ArrayList<>();
 		for (int i = 0; i < au.size(); i++) {
 			if (au.get(i).getAlbum_id().getTitle().equals(album)) {				
-				Usuario us = new Usuario();
-				us.setId(au.get(i).getUsuario_id().getId());
-				us.setName(au.get(i).getUsuario_id().getName());
-				us.setUsername(au.get(i).getUsuario_id().getUsername());
-				us.setEmail(au.get(i).getUsuario_id().getEmail());
+				Usuario us = Usuario.builder()
+						.email(au.get(i).getUsuario_id().getEmail())
+						.id(au.get(i).getUsuario_id().getId())
+						.name(au.get(i).getUsuario_id().getName())
+						.username(au.get(i).getUsuario_id().getUsername())
+						.build();
 				usuarios.add(us);
 			}
 		}

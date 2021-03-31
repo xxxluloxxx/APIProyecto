@@ -9,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * Definimos la clase Uusario como una entidad para su creacion en la base de datos
@@ -16,6 +20,10 @@ import javax.persistence.OneToMany;
  *
  */
 @Entity
+@Builder
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Usuario {
 	
 	/*
@@ -55,55 +63,4 @@ public class Usuario {
 	@JoinColumn(name="usuario_id")
 	private List<AlbumUsuario> usuario_id;
 
-	/*
-	 * Metodos getters and setters
-	 */
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public List<AlbumUsuario> getUsuario_id() {
-		return usuario_id;
-	}
-
-	public void setUsuario_id(List<AlbumUsuario> usuario_id) {
-		this.usuario_id = usuario_id;
-	}
-
-	public int getUser_id() {
-		return user_id;
-	}
-
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
-	}
-	
 }

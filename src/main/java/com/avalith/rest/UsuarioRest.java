@@ -52,8 +52,8 @@ public class UsuarioRest {
 	 */
 	@GetMapping("compartir/{idUsuario}/{idAlbum}")
 	public String compartir(@PathVariable("idUsuario") String id_usuario, @PathVariable("idAlbum") String id_album) {
-		Usuario usuario = new Usuario();
-		Album album = new Album();
+		Usuario usuario;
+		Album album;
 		try {
 			usuario = usuario_llamada.llamadaUsuario(id_usuario);
 		} catch (Exception e) {

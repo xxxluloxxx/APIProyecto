@@ -6,6 +6,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * Definimos la clase AlbumUsuario como una entidad para su creacion en la base de datos y a su vez tabla intermedia para guardar los albumes compartidos
@@ -13,6 +17,10 @@ import javax.persistence.ManyToOne;
  *
  */
 @Entity
+@Builder
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class AlbumUsuario {
 
 	/*
@@ -35,33 +43,5 @@ public class AlbumUsuario {
 	@ManyToOne
 	@JoinColumn(name="usuario_id")
 	private Usuario usuario_id;
-
-	/*
-	 * Metodos getters and setters
-	 */
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public Album getAlbum_id() {
-		return album_id;
-	}
-
-	public void setAlbum_id(Album album_id) {
-		this.album_id = album_id;
-	}
-
-	public Usuario getUsuario_id() {
-		return usuario_id;
-	}
-
-	public void setUsuario_id(Usuario usuario_id) {
-		this.usuario_id = usuario_id;
-	}
-	
 	
 }

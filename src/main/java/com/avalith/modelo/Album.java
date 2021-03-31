@@ -8,6 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * Definimos la clase Album como una entidad para su creacion en la base de
@@ -17,6 +21,10 @@ import javax.persistence.OneToMany;
  *
  */
 @Entity
+@Builder
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Album {
 
 	/*
@@ -44,38 +52,4 @@ public class Album {
 	@JoinColumn(name = "album_id")
 	private List<AlbumUsuario> albums;
 
-	/*
-	 * Metodos getters and setters
-	 */
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public Integer getAlbum_id() {
-		return album_id;
-	}
-
-	public void setAlbum_id(Integer album_id) {
-		this.album_id = album_id;
-	}
-
-	public List<AlbumUsuario> getAlbums() {
-		return albums;
-	}
-
-	public void setAlbums(List<AlbumUsuario> albums) {
-		this.albums = albums;
-	}
 }
